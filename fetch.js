@@ -46,7 +46,11 @@ Promise.all([
               )
             )
             .then((res) => res.json())
-            .then((resource) => ({ ...user, resource }))
+            .then((resource) =>
+              user.profile.displayName === resource.fullName
+                ? { ...user, resource }
+                : user
+            )
             .catch((e) => {
               console.error(user, e);
               return user;
