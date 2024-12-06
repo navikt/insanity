@@ -86,12 +86,13 @@ export default function Home() {
             <TableHeaderCell scope="col">displayName</TableHeaderCell>
             <TableHeaderCell scope="col">updatedAt</TableHeaderCell>
             <TableHeaderCell scope="col">members</TableHeaderCell>
+            <TableHeaderCell scope="col">datasets</TableHeaderCell>
           </TableRow>
         </TableHeader>
         <TableBody>
           {projects
             .filter((proj) => !proj.isDisabledByUser)
-            .map(({ id, displayName, updatedAt, members }, i) => {
+            .map(({ id, displayName, updatedAt, members, usage }) => {
               return (
                 <TableRow key={id}>
                   <TableHeaderCell scope="row">
@@ -99,6 +100,7 @@ export default function Home() {
                   </TableHeaderCell>
                   <TableDataCell>{format(new Date(updatedAt))}</TableDataCell>
                   <TableDataCell>{members.length}</TableDataCell>
+                  <TableDataCell>{usage.datasets}</TableDataCell>
                 </TableRow>
               );
             })}
@@ -113,12 +115,13 @@ export default function Home() {
             <TableHeaderCell scope="col">displayName</TableHeaderCell>
             <TableHeaderCell scope="col">updatedAt</TableHeaderCell>
             <TableHeaderCell scope="col">members</TableHeaderCell>
+            <TableHeaderCell scope="col">datasets</TableHeaderCell>
           </TableRow>
         </TableHeader>
         <TableBody>
           {projects
             .filter((proj) => proj.isDisabledByUser)
-            .map(({ id, displayName, updatedAt, members }, i) => {
+            .map(({ id, displayName, updatedAt, members, usage }) => {
               return (
                 <TableRow key={id}>
                   <TableHeaderCell scope="row">
@@ -126,6 +129,7 @@ export default function Home() {
                   </TableHeaderCell>
                   <TableDataCell>{format(new Date(updatedAt))}</TableDataCell>
                   <TableDataCell>{members.length}</TableDataCell>
+                  <TableDataCell>{usage.datasets}</TableDataCell>
                 </TableRow>
               );
             })}

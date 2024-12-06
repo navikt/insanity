@@ -24,6 +24,7 @@ export default async ({
   return (
     <div>
       <h1>{project.displayName}</h1>
+      <div>archived: {project.isDisabledByUser.toString()}</div>
       <div>datasets: {project.usage.datasets}</div>
       <div>createdAt: {project.createdAt}</div>
       <div>updatedAt: {project.updatedAt}</div>
